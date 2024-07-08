@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from medicioapp.models import Contact
 
 # Create your views here.
 def index(request):
@@ -15,3 +16,16 @@ def doctors(request):
 
 def departments(request):
     return render(request,'departments.html')
+
+def contacts(request):
+    #return render(request,'contacts.html')
+    if request.method=='POST':
+        all = Contact(name=request.POST['name'],
+                      email=request.POST['email'],
+                      phone=request.POST['phone'],
+                      message=request.POST['message'],
+                      )
+        all.save()
+        return redirect('/contacts')
+    else:
+        return render(request,'contacts.html')
