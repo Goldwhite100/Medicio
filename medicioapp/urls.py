@@ -12,4 +12,7 @@ urlpatterns = [
     path('contacts/', views.contacts, name='contacts'),
     path('appointment/', views.appoint, name='appointment'),
     path('branch/', views.branch, name='branch'),
+    path('show/', views.show, name='show'),
+    path('delete/<int:id>', views.delete,),
+
 ]

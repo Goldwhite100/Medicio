@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from medicioapp.models import Contact, Appoint, Branch
+from medicioapp.models import Contact, Appoint, Branch, Product
 
 
 # Create your views here.
@@ -67,3 +67,13 @@ def branch(request):
         return redirect('/branch')
     else:
         return render(request, 'branch.html')
+
+def show(request):
+    information = Appoint.objects.all()
+    return render(request,'show.html',{'data':information})
+
+def delete(request,id):
+    myappointments = Appoint.objects.get(id = id)
+    myappointments.delete()
+    return redirect('/show')
+
