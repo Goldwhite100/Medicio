@@ -76,10 +76,20 @@ WSGI_APPLICATION = 'Medicio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'medicio',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
+#pip install mysqlclient
+#sudo apt-get install python3-dev default-libmysqlclient-dev build-essential pkg-config
+#pip in----- mysq---
+#python makemigrations/migrate/runserver
+
+
 
 
 # Password validation
